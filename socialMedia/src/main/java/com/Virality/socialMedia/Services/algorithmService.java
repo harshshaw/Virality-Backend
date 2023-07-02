@@ -15,6 +15,8 @@ public class algorithmService {
     public Double calculation(){
         baseValue=baseValue+(baseValue*((numberOfLikes+numberOfFollowers+numberOfPost)/numberDaysInactive*1.2));
 
+        //We want to keep baseValue at 0.10 even after long period of inactiveness
+        //since this is the minimun it can go for a User
         if(baseValue<0.10)
             return 0.10;
         return baseValue;
