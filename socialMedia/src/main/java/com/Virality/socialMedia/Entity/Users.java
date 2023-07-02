@@ -6,7 +6,8 @@ import jakarta.persistence.Id;
 @Entity(name="Users")
 public class Users {
     @Id
-    private Long id;
+    private Long idss;
+
 
 
     public void setId(Long id) {
