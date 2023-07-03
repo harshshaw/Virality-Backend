@@ -14,7 +14,12 @@ public class algorithmService {
     private Integer numberOfLikes=100;
     private Integer numberOfPost;
     private Integer numberOfFollowers;
-    private Double numberDaysInactive=Math.random();
+    private Double numberDaysInactive=10.00;
+    private Users response;
+
+    private Integer id=7;
+
+
 
     @Autowired
     UserRepo userRepo;
@@ -23,8 +28,6 @@ public class algorithmService {
     //fetch values from DB
     public Double calculation(){
 
-        Users response=new Users();
-        Integer id=3;
         response=userRepo.testQuery(id);
         numberOfPost=response.getPosts();
         numberOfFollowers=response.getFollowers();
