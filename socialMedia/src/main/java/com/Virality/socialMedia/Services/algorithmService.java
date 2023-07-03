@@ -5,19 +5,17 @@ import com.Virality.socialMedia.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 public class algorithmService {
-    private Double baseValue=0.10;
-    private Integer numberOfLikes=100;
+
+    private Integer numberOfLikes=1000;
     private Integer numberOfPost;
     private Integer numberOfFollowers;
     private Double numberDaysInactive=10.00;
+    private Double popularityCardValue;
     private Users response;
 
-    private Integer id=7;
+    private Integer id=6;
 
 
 
@@ -28,17 +26,24 @@ public class algorithmService {
     //fetch values from DB
     public Double calculation(){
 
+        //Fetch data from the repository query
         response=userRepo.testQuery(id);
         numberOfPost=response.getPosts();
         numberOfFollowers=response.getFollowers();
-        System.out.println("Query for User Id:"+ id);
-        baseValue=baseValue+(baseValue*((numberOfLikes+numberOfFollowers+numberOfPost)/numberDaysInactive*1.2));
+        popularityCardValue=response.getPopularityCardValue();
+
+        System.out.println("Query for User Id:"+ id+" Card Value:"+ popularityCardValue);
+
+        //BaseValue Calculations based on the provided parameters
+        Double newPopularityCardValue;
+        newPopularityCardValue=popularityCardValue+(0.10*((numberOfLikes+numberOfFollowers+numberOfPost)/(numberDaysInactive*5)));
+        response.setPopularityCardValue(newPopularityCardValue);
 
         //We want to keep baseValue at 0.10 even after long period of inactiveness
         //since this is the minimun it can go for a User
-        if(baseValue<0.10)
-            return baseValue;
-        return baseValue;
+        if(newPopularityCardValue<0.10)
+            return 0.10;
+        return newPopularityCardValue;
 
     }
 }

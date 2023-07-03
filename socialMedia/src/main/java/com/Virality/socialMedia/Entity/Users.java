@@ -1,7 +1,6 @@
 package com.Virality.socialMedia.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -18,7 +17,7 @@ public class Users {
 
     private Integer following;
     private Integer posts;
-    private Integer popularityCardValue;
+    private Double popularityCardValue;
 
     public String getUserName() {
         return userName;
@@ -68,11 +67,11 @@ public class Users {
         this.posts = posts;
     }
 
-    public Integer getPopularityCardValue() {
+    public Double getPopularityCardValue() {
         return popularityCardValue;
     }
 
-    public void setPopularityCardValue(Integer popularityCardValue) {
+    public void setPopularityCardValue(Double popularityCardValue) {
         this.popularityCardValue = popularityCardValue;
     }
 
