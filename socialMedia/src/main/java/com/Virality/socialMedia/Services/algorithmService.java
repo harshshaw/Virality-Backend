@@ -40,7 +40,7 @@ public class algorithmService {
         response.setPopularityCardValue(newPopularityCardValue);
 
         //We want to keep baseValue at 0.10 even after long period of inactiveness
-        //since this is the minimun it can go for a User
+        //since this is the minimum it can go for a User
         if(newPopularityCardValue<0.10)
             return 0.10;
         return newPopularityCardValue;
