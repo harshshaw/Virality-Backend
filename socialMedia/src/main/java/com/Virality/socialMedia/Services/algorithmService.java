@@ -15,7 +15,7 @@ public class algorithmService {
     private Double popularityCardValue;
     private Users response;
 
-    private Integer id=6;
+    private Integer id=1;
 
 
 
@@ -24,7 +24,7 @@ public class algorithmService {
 
 
     //fetch values from DB
-    public Double calculation(){
+    public Double calculation(Integer id){
 
         //Fetch data from the repository query
         response=userRepo.testQuery(id);
