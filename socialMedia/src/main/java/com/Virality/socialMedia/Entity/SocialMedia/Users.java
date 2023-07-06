@@ -1,4 +1,4 @@
-package com.Virality.socialMedia.Entity;
+package com.Virality.socialMedia.Entity.SocialMedia;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
@@ -13,8 +13,7 @@ public class Users {
     @JsonProperty("Gender")
     private String gender;
     private Integer followers;
-
-
+    private String userProfilePic;
     private Integer following;
     private Integer posts;
     private Double popularityCardValue;
@@ -81,5 +80,12 @@ public class Users {
 
     public Integer getId() {
         return id;
+    }
+    public String getUserProfilePic() {
+        return userProfilePic;
+    }
+
+    public void setUserProfilePic(String userProfilePic) {
+        this.userProfilePic = userProfilePic;
     }
 }
