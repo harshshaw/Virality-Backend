@@ -1,4 +1,4 @@
-package com.Virality.socialMedia.Services;
+package com.Virality.socialMedia.Services.SocialMedia;
 
 import com.Virality.socialMedia.Entity.SocialMedia.Users;
 import com.Virality.socialMedia.Repository.UserRepo;

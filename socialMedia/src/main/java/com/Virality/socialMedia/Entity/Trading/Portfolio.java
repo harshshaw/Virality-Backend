@@ -1,19 +1,17 @@
 package com.Virality.socialMedia.Entity.Trading;
 
-import com.Virality.socialMedia.Entity.SocialMedia.Users;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 import java.util.List;
-import java.util.UUID;
 
 @Entity(name = "Portfolio")
 public class Portfolio {
     @Id
-    private UUID userId;
-    @OneToMany
-    private List<Users> purchasedUserIds;
+    private Integer userId;
+
+    private List<Integer> purchasedUserIds;
 
     private Integer unitsPurchased;
 
@@ -23,19 +21,19 @@ public class Portfolio {
 
     private Double currentPrice;
 
-    public UUID getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(UUID userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public List<Users> getPurchasedUserIds() {
+    public List<Integer> getPurchasedUserIds() {
         return purchasedUserIds;
     }
 
-    public void setPurchasedUserIds(List<Users> purchasedUserIds) {
+    public void setPurchasedUserIds(List<Integer> purchasedUserIds) {
         this.purchasedUserIds = purchasedUserIds;
     }
 

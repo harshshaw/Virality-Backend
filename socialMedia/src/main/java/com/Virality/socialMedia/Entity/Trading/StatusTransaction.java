@@ -1,7 +1,7 @@
 package com.Virality.socialMedia.Entity.Trading;
 
 public enum StatusTransaction {
-    Pending,
+    Pending ,
     Success,
     Fail
 }
