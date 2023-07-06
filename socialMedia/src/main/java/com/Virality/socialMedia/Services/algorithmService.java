@@ -1,6 +1,6 @@
 package com.Virality.socialMedia.Services;
 
-import com.Virality.socialMedia.Entity.Users;
+import com.Virality.socialMedia.Entity.SocialMedia.Users;
 import com.Virality.socialMedia.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

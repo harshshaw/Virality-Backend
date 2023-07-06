@@ -1,6 +1,5 @@
 package com.Virality.socialMedia.Controller;
 
-import com.Virality.socialMedia.Entity.Users;
 import com.Virality.socialMedia.Services.algorithmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
