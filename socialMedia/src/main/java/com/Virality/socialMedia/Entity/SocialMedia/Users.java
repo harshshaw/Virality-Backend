@@ -1,12 +1,12 @@
 package com.Virality.socialMedia.Entity.SocialMedia;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity(name="Users")
 public class Users {
     @Id
+//    @GeneratedValue(strategy = GenerationType.UUID)
     private Integer id;
     private String userName;
     private Integer age;

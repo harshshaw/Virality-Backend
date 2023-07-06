@@ -1,27 +1,28 @@
 package com.Virality.socialMedia.Entity.Trading;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import java.util.UUID;
 
 @Entity(name="Transaction")
 public class Transaction {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private UUID userId;
+    private Integer userId;
     private TypeofTransaction transactionType;
     private Double transactionAmount;
     private StatusTransaction transactionStatus;
-    private UUID purchasedUserId;
+    private Integer purchasedUserId;
     private Integer unitsPurchased;
 
-    public UUID getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(UUID userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -49,11 +50,11 @@ public class Transaction {
         this.transactionStatus = transactionStatus;
     }
 
-    public UUID getPurchasedUserId() {
+    public Integer getPurchasedUserId() {
         return purchasedUserId;
     }
 
-    public void setPurchasedUserId(UUID purchasedUserId) {
+    public void setPurchasedUserId(Integer purchasedUserId) {
         this.purchasedUserId = purchasedUserId;
     }
 

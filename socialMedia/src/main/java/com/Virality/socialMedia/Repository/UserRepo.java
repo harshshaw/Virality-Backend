@@ -14,4 +14,7 @@ public interface UserRepo extends CrudRepository<Users,Long> {
 
         @Query("select u from Users u   order by u.popularityCardValue desc ")
         public List<Users> leaderBoardQuery();
+
+        @Query("select u.popularityCardValue from Users u where u.id=?1 ")
+        public Double currentPopularityCardValue(Integer id);
 }
