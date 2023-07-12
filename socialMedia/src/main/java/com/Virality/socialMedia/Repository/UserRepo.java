@@ -9,5 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface UserRepo extends CrudRepository<User, UUID> {
-
+public User getUserByUserId(UUID userId);
 }
