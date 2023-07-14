@@ -1,6 +1,6 @@
 package com.Virality.socialMedia.Controller;
 
-import com.Virality.socialMedia.Entity.User;
+import com.Virality.socialMedia.Entity.SocialMedia.User;
 import com.Virality.socialMedia.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class tradingService {
@@ -26,10 +27,10 @@ public class tradingService {
     UserRepo userRepo;
     public void Purchase(Transaction transactionRecord){
             Portfolio portfolio=new Portfolio();
-            List<Integer> purchaseIds=new ArrayList<>();
-            Integer userId=transactionRecord.getUserId();
+            List<UUID> purchaseIds=new ArrayList<>();
+            UUID userId=transactionRecord.getUserId();
             Double currentValue=userRepo.currentPopularityCardValue(userId);
-            Integer purchaseId=transactionRepo.purchasedUserIdQuery(userId);
+            UUID purchaseId=transactionRepo.purchasedUserIdQuery(userId);
             purchaseIds.add(purchaseId);
 
             //We store PurchaseUserId to UserId only if transaction is success

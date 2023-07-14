@@ -5,24 +5,26 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.UUID;
+
 @Entity(name="Transaction")
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Integer userId;
+    private UUID userId;
     private TypeofTransaction transactionType;
     private Double transactionAmount;
     private StatusTransaction transactionStatus;
-    private Integer purchasedUserId;
+    private UUID purchasedUserId;
     private Integer unitsPurchased;
 
-    public Integer getUserId() {
+    public UUID getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(UUID userId) {
         this.userId = userId;
     }
 
@@ -50,11 +52,11 @@ public class Transaction {
         this.transactionStatus = transactionStatus;
     }
 
-    public Integer getPurchasedUserId() {
+    public UUID getPurchasedUserId() {
         return purchasedUserId;
     }
 
-    public void setPurchasedUserId(Integer purchasedUserId) {
+    public void setPurchasedUserId(UUID purchasedUserId) {
         this.purchasedUserId = purchasedUserId;
     }
 

@@ -1,6 +1,6 @@
 package com.Virality.socialMedia.Configuration;
 
-import com.Virality.socialMedia.Entity.*;
+import com.Virality.socialMedia.Entity.SocialMedia.*;
 import com.Virality.socialMedia.Repository.UserRepo;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;

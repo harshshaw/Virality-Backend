@@ -1,7 +1,6 @@
-package com.Virality.socialMedia.Entity;
+package com.Virality.socialMedia.Entity.SocialMedia;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 

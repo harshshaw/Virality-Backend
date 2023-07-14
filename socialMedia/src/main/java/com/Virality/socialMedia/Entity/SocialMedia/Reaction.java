@@ -1,4 +1,4 @@
-package com.Virality.socialMedia.Entity;
+package com.Virality.socialMedia.Entity.SocialMedia;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;

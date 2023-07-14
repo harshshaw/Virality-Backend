@@ -1,10 +1,11 @@
 package com.Virality.socialMedia.Repository;
 
-import com.Virality.socialMedia.Entity.User;
+import com.Virality.socialMedia.Entity.SocialMedia.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -12,11 +13,11 @@ public interface UserRepo extends CrudRepository<User, UUID> {
 public User getUserByUserId(UUID userId);
 
         @Query("select u from Users u where u.id=?1")
-        public Users testQuery(Integer id);
+        public User testQuery(UUID id);
 
         @Query("select u from Users u   order by u.popularityCardValue desc ")
-        public List<Users> leaderBoardQuery();
+        public List<User> leaderBoardQuery();
 
         @Query("select u.popularityCardValue from Users u where u.id=?1 ")
-        public Double currentPopularityCardValue(Integer id);
+        public Double currentPopularityCardValue(UUID id);
 }

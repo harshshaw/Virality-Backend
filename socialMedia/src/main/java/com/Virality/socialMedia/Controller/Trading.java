@@ -1,6 +1,6 @@
 package com.Virality.socialMedia.Controller;
 
-import com.Virality.socialMedia.Entity.SocialMedia.Users;
+import com.Virality.socialMedia.Entity.SocialMedia.User;
 import com.Virality.socialMedia.Entity.Trading.Transaction;
 import com.Virality.socialMedia.Repository.UserRepo;
 import com.Virality.socialMedia.Services.Trading.tradingService;
@@ -17,7 +17,7 @@ public class Trading {
     @Autowired
     tradingService tradingService;
     @GetMapping("/leaderboard")
-    public List<Users> leaderBoard(){
+    public List<User> leaderBoard(){
         return userRepo.leaderBoardQuery();
     }
 
