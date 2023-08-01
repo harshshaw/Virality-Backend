@@ -15,7 +15,7 @@ public class algorithmService {
     private Integer numberOfFollowers;
     private Double numberDaysInactive=10.00;
     private Double popularityCardValue;
-    private User response;
+
 
 
 
@@ -28,8 +28,8 @@ public class algorithmService {
     public Double calculation(UUID userID){
 
         //Fetch data from the repository query
-        User user= userRepo.getUserByUserId(userID);
-        numberOfPost=user.getPosts().size();
+        User response= userRepo.getUserByUserId(userID);
+        numberOfPost=response.getPosts().size();
         numberOfFollowers=response.getFollowers().size();
         popularityCardValue=response.getPopularityCardValue();
 
