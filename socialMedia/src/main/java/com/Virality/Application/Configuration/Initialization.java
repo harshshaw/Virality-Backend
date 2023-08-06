@@ -6,6 +6,8 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Date;
+
 @Configuration
 public class Initialization{
     @Autowired
@@ -119,14 +121,20 @@ public class Initialization{
         post1.setLocation("Mumbai");
         post1.setPostType(PostType.PICTURE);
         post1.setUser(user1);
+        post1.setCreatedDate(new Date());
+
+        
 
         Post post2=new Post();
         post2.setCaption("Experience the power of innovation with the #ASUS Zenbook S 13 OLED, delivering uncompromising performance in a compact, slim & lightweight design. Truly #Thincredible");
         post2.setLocation("Agra");
         post2.setPostType(PostType.REEL);
         post2.setUser(user2);
+        post2.setCreatedDate(new Date());
         user1.addPost(post1);
         user2.addPost(post2);
+
+
 
 
 

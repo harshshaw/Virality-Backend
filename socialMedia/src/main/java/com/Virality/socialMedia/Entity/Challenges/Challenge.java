@@ -1,6 +1,6 @@
 package com.Virality.socialMedia.Entity.Challenges;
 
-import com.Virality.socialMedia.Entity.SocialMedia.HashTag;
+//import com.Virality.socialMedia.Entity.SocialMedia.HashTag;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,7 +11,7 @@ public class Challenge {
     private UUID companyId;
     private List<UUID> participants;
     private List<Rule> rules;
-    private List<HashTag> hashTagId;
+//    private List<HashTag> hashTagId;
 
     public UUID getChallengeId() {
         return challengeId;
@@ -53,11 +53,11 @@ public class Challenge {
         this.rules = rules;
     }
 
-    public List<HashTag> getHashTagId() {
-        return hashTagId;
-    }
+//    public List<HashTag> getHashTagId() {
+//        return hashTagId;
+//    }
 
-    public void setHashTagId(List<HashTag> hashTagId) {
-        this.hashTagId = hashTagId;
-    }
+//    public void setHashTagId(List<HashTag> hashTagId) {
+//        this.hashTagId = hashTagId;
+//    }
 }

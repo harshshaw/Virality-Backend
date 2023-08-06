@@ -7,6 +7,7 @@ import com.Virality.Application.Repository.TransactionRepo;
 import com.Virality.Application.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +24,14 @@ public class tradingService {
 
     @Autowired
     UserRepo userRepo;
+
+    TransactionStatus transactionStatus;
     public void Purchase(Transaction transactionRecord){
             Portfolio portfolio=new Portfolio();
             List<UUID> purchaseIds=new ArrayList<>();
             UUID userId=transactionRecord.getUserId();
             Double currentValue=userRepo.currentPopularityCardValue(userId);
-            UUID purchaseId=transactionRepo.purchasedUserIdQuery(userId);
+            UUID purchaseId=transactionRepo.purchasedUserIdQuery(userId );
             purchaseIds.add(purchaseId);
 
             //We store PurchaseUserId to UserId only if transaction is success

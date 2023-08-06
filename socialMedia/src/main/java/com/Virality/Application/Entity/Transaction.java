@@ -1,5 +1,7 @@
 package com.Virality.Application.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -44,6 +46,7 @@ public class Transaction {
         this.transactionAmount = transactionAmount;
     }
 
+    @JsonValue
     public StatusTransaction getTransactionStatus() {
         return transactionStatus;
     }
