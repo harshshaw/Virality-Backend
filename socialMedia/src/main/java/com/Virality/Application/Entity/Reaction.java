@@ -1,5 +1,6 @@
 package com.Virality.Application.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -91,14 +92,17 @@ public class Reaction {
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "postId")
+    @JsonIgnore
     private Post post;
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "commentId")
+    @JsonIgnore
     private Comment comment;
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "userId")
+    @JsonIgnore
     private User user;
 
 }
