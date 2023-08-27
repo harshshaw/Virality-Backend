@@ -77,15 +77,19 @@ public class PostService {
         storageService.delete(postFilePath);
     }
 
+    //This service is updating numbers of likes on a post only
     public void updatePost(UUID postId,PostDto updatePost){
         Optional<Post> postFromDb=postRepo.findById(postId);
+        Integer likesUpdate=updatePost.getLikesCount();
+        System.out.println(likesUpdate);
+        System.out.println(updatePost.getUserId());
         if(postFromDb.isPresent())
         {
             Post postObject=postFromDb.get();
-//            postObject.
+            postObject.setLikesCount(likesUpdate+postObject.getLikesCount());
+            postRepo.save(postObject);
+
         }
-        System.out.println((postFromDb.isPresent()));
-        System.out.println(postFromDb);
     }
 
 

@@ -1,6 +1,7 @@
 package com.Virality.Application.Controller;
 
 import com.Virality.Application.Dto.PostDto;
+import com.Virality.Application.Entity.Post;
 import com.Virality.Application.Services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
