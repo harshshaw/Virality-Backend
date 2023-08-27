@@ -17,6 +17,26 @@ public class PostDto {
 
     private Set<String> HashTags;
 
+    private Integer likesCount;
+
+    public Integer getLikesCount() {
+        return likesCount;
+    }
+
+    public void setLikesCount(Integer likesCount) {
+        this.likesCount = likesCount;
+    }
+
+    public Integer getDislikesCount() {
+        return dislikesCount;
+    }
+
+    public void setDislikesCount(Integer dislikesCount) {
+        this.dislikesCount = dislikesCount;
+    }
+
+    private Integer dislikesCount;
+
     public Set<String> getHashTags() {
         return HashTags;
     }
@@ -86,4 +106,13 @@ public class PostDto {
     List<Comment> comments;
 
     List<Reaction> reactions;
+
+    private Integer commentsCount;
+    public void setCommentsCount(Integer commentsCount) {
+    }
+
+    public Integer getCommentsCount(){
+        return this.commentsCount;
+    }
+
 }

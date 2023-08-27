@@ -1,10 +1,12 @@
 package com.Virality.Application.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity(name="Post")
 public class Post {
@@ -14,6 +16,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "userId")
+    @JsonIgnore
     private User user;
 
     @Enumerated(EnumType.STRING)
@@ -35,7 +38,16 @@ public class Post {
     @JoinTable(name = "post_hashtag",
             joinColumns = @JoinColumn(name = "postId"),
             inverseJoinColumns = @JoinColumn(name = "hashTagId"))
+    @JsonIgnore
     private Set<HashTag> hashTags;
+
+    @Transient
+    private Integer likesCount;
+
+    @Transient
+    private Integer dislikesCount;
+    @Transient
+    private Integer commentsCount;
 
     private String fileUrl;
 
@@ -151,4 +163,30 @@ public class Post {
         this.hashTags.add(hashTag);
     }
 
+    @PostLoad
+    public void calculatePostMetrics() {
+        Integer likes=this.reactions.stream().filter(reaction -> {
+            return reaction.getReactionType().equals(ReactionType.LIKE);
+        }).collect(Collectors.toList()).size();
+        this.likesCount=likes;
+
+        Integer dislikes=this.reactions.stream().filter(reaction -> {
+            return reaction.getReactionType().equals(ReactionType.DISLIKE);
+        }).collect(Collectors.toList()).size();
+        this.dislikesCount=dislikes;
+
+        this.commentsCount=(Objects.isNull(this.comments))?0:this.comments.size();
+    }
+
+    public Integer getLikesCount(){
+        return this.likesCount;
+    }
+
+    public Integer getDislikesCount() {
+        return dislikesCount;
+    }
+
+    public Integer getCommentsCount(){
+        return this.commentsCount;
+    }
 }

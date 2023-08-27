@@ -64,6 +64,9 @@ public class PostService {
         postDto.setPostType(post.getPostType().toString());
         postDto.setLocation(post.getLocation());
         postDto.setUserId(post.getUser().getUserId().toString());
+        postDto.setLikesCount(post.getLikesCount());
+        postDto.setDislikesCount(post.getDislikesCount());
+        postDto.setCommentsCount(post.getCommentsCount());
         return postDto;
     }
 
