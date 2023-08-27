@@ -27,4 +27,9 @@ public class PostController {
         postService.deletePost(UUID.fromString(postId));
     }
 
+    @PostMapping("/postUpdate/{postId}")
+    void updatePost(@PathVariable String postId,@RequestBody PostDto updatePost){
+        postService.updatePost(UUID.fromString(postId),updatePost);
+    }
+
 }

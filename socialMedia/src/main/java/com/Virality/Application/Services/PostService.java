@@ -74,6 +74,17 @@ public class PostService {
         storageService.delete(postFilePath);
     }
 
+    public void updatePost(UUID postId,PostDto updatePost){
+        Optional<Post> postFromDb=postRepo.findById(postId);
+        if(postFromDb.isPresent())
+        {
+            Post postObject=postFromDb.get();
+//            postObject.
+        }
+        System.out.println((postFromDb.isPresent()));
+        System.out.println(postFromDb);
+    }
+
 
 
 //    public void associateHashTagAndPost(Post post, Set<String> hashTags){
