@@ -51,6 +51,18 @@ public class Post {
 
     private String fileUrl;
 
+    public void setLikesCount(Integer likesCount) {
+        this.likesCount = likesCount;
+    }
+
+    public void setDislikesCount(Integer dislikesCount) {
+        this.dislikesCount = dislikesCount;
+    }
+
+    public void setCommentsCount(Integer commentsCount) {
+        this.commentsCount = commentsCount;
+    }
+
     public String getFileUrl() {
         return fileUrl;
     }
