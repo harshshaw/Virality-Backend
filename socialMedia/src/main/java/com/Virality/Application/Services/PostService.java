@@ -30,12 +30,17 @@ public class PostService {
 //    @Autowired
 //    HashTagRepo hashTagRepo;
 //
+
+
     @Autowired
     LocalStorageService storageService;
 
-    public UUID createPost(PostDto postDto){
+    public UUID createPost(PostDto postDto)
+    {
 
         User user=userRepo.getUserByUserId(UUID.fromString(postDto.getUserId()));
+
+//        User user=new User();
 
         Post post=new Post();
         post.setPostType(PostType.valueOf(postDto.getPostType()));

@@ -17,7 +17,7 @@ public class Post {
     @ManyToOne
     @JoinColumn(referencedColumnName = "userId")
     @JsonIgnore
-    private User user;
+    private User user= new User();
 
     @Enumerated(EnumType.STRING)
     private PostType postType;

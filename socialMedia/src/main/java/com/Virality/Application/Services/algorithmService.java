@@ -12,7 +12,7 @@ import java.util.UUID;
 @Service
 public class algorithmService {
 
-    private Integer numberOfLikes=1000;
+    private Integer numberOfLikes=100;
     private Integer numberOfPost;
     private Integer numberOfFollowers;
     private Integer numberDaysInactive;
@@ -52,7 +52,8 @@ public class algorithmService {
         return newPopularityCardValue;
 
     }
-
+    //this service is getting date from a post and not fetching
+    //last post date, we need to update accordingly
     public Integer calculateDaysInactive(UUID userId){
         UUID userID=userId;
         User response= userRepo.getUserByUserId(userId);
