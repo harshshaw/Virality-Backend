@@ -30,12 +30,17 @@ public class PostService {
 //    @Autowired
 //    HashTagRepo hashTagRepo;
 //
+
+
     @Autowired
     LocalStorageService storageService;
 
-    public UUID createPost(PostDto postDto){
+    public UUID createPost(PostDto postDto)
+    {
 
         User user=userRepo.getUserByUserId(UUID.fromString(postDto.getUserId()));
+
+//        User user=new User();
 
         Post post=new Post();
         post.setPostType(PostType.valueOf(postDto.getPostType()));
@@ -75,6 +80,21 @@ public class PostService {
         String postFilePath=post.getFileUrl();
         postRepo.deleteById(postId);
         storageService.delete(postFilePath);
+    }
+
+    //This service is updating numbers of likes on a post only
+    public void updatePost(UUID postId,PostDto updatePost){
+        Optional<Post> postFromDb=postRepo.findById(postId);
+        Integer likesUpdate=updatePost.getLikesCount();
+        System.out.println(likesUpdate);
+        System.out.println(updatePost.getUserId());
+        if(postFromDb.isPresent())
+        {
+            Post postObject=postFromDb.get();
+            postObject.setLikesCount(likesUpdate+postObject.getLikesCount());
+            postRepo.save(postObject);
+
+        }
     }
 
 

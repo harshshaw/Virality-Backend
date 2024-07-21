@@ -1,6 +1,7 @@
 package com.Virality.Application.Controller;
 
 import com.Virality.Application.Dto.PostDto;
+import com.Virality.Application.Entity.Post;
 import com.Virality.Application.Services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,11 @@ public class PostController {
     @DeleteMapping("/post/{postId}")
     void deletePost(@PathVariable("postId") String postId){
         postService.deletePost(UUID.fromString(postId));
+    }
+
+    @PostMapping("/postUpdate/{postId}")
+    void updatePost(@PathVariable String postId,@RequestBody PostDto updatePost){
+        postService.updatePost(UUID.fromString(postId),updatePost);
     }
 
 }

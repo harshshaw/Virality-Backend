@@ -17,7 +17,7 @@ public class Post {
     @ManyToOne
     @JoinColumn(referencedColumnName = "userId")
     @JsonIgnore
-    private User user;
+    private User user= new User();
 
     @Enumerated(EnumType.STRING)
     private PostType postType;
@@ -50,6 +50,18 @@ public class Post {
     private Integer commentsCount;
 
     private String fileUrl;
+
+    public void setLikesCount(Integer likesCount) {
+        this.likesCount = likesCount;
+    }
+
+    public void setDislikesCount(Integer dislikesCount) {
+        this.dislikesCount = dislikesCount;
+    }
+
+    public void setCommentsCount(Integer commentsCount) {
+        this.commentsCount = commentsCount;
+    }
 
     public String getFileUrl() {
         return fileUrl;
